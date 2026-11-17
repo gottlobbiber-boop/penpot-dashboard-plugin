@@ -7,16 +7,16 @@ const T = {
   search: "#1d2944", tabBg: "#121a2c", tabStroke: "#26324d",
 };
 
-function fill(shape, color) {
-  shape.fills = [{ fillColor: color, fillOpacity: 1 }];
+function fill(shape, color, opacity = 1) {
+  shape.fills = [{ fillColor: color, fillOpacity: opacity }];
 }
 
-function rect(parent, x, y, w, h, color, radius = 0, stroke = null) {
+function rect(parent, x, y, w, h, color, radius = 0, stroke = null, opacity = 1) {
   const r = penpot.createRectangle();
   r.resize(w, h);
   r.x = x;
   r.y = y;
-  fill(r, color);
+  fill(r, color, opacity);
   if (radius) {
     try { r.borderRadius = radius; } catch (e) { /* ältere Penpot-Version */ }
   }
@@ -93,7 +93,7 @@ const tasks = [
 for (const [i, [label, count, color]] of tasks.entries()) {
   const y = 712 + i * 73.5;
   if (i > 0) rect(board, 64, y, 632, 1.5, T.border2);
-  rect(board, 64, y + 12, 48, 48, color + "24", 17);
+  rect(board, 64, y + 12, 48, 48, color, 17, null, 0.14);
   await text(board, 130, y + 24, label, 26, i < 6 ? T.text : T.muted, 500);
   await text(board, 620, y + 24, count, 24, color, 600);
 }

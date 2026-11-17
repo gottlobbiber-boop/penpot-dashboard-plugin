@@ -1,6 +1,6 @@
 {
   "name": "Dashboard Builder",
   "description": "Baut den Dashboard-Screen D1 (dunkel) als native Penpot-Formen auf.",
-  "code": "plugin.js",
-  "permissions": ["content:write"]
+"code": "https://gottlobbiber-boop.github.io/penpot-dashboard-plugin/plugin.js",
+"permissions": ["content:write"]
 }
